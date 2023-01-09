@@ -6,12 +6,16 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        let rootRef = Database.database().reference()
+        rootRef.observe(.value, with: { snapshot in
+          print(snapshot.value)
+        })
     }
 
 
