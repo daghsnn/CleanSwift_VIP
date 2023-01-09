@@ -10,11 +10,13 @@
 import UIKit
 
 protocol ProductsDisplayLogic: AnyObject {
-    func displaySomething(viewModel: Products.Something.ViewModel)
+    func displaySomething(viewModel: Products.ViewModel)
+    func presentError(message: String)
+
 }
 
 final class ProductsViewController: UIViewController {
-    var interactor: ProductsBusinessLogic?
+    weak var interactor: ProductsBusinessLogic?
     var router: (ProductsRoutingLogic & ProductsDataPassing)?
     
     // MARK: Object lifecycle
@@ -48,20 +50,21 @@ final class ProductsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        doSomething()
+        interactor?.getProducts(Products.Request())
     }
     
-    // MARK: Do something
-        
-    func doSomething() {
-        let request = Products.Something.Request()
-        interactor?.doSomething(request: request)
-    }
     
 }
 
 extension ProductsViewController : ProductsDisplayLogic {
-    func displaySomething(viewModel: Products.Something.ViewModel) {
-        
+    func presentError(message: String) {
+        DispatchQueue.main.async {
+            self.showToast(message: message)
+        }
+    }
+    
+    func displaySomething(viewModel: Products.ViewModel) {
+        // TODO: buraya kadar tamamdır
+        print(viewModel.products.first?.itemColor)
     }
 }

@@ -7,9 +7,14 @@
 //
 
 import Foundation
+import FirebaseDatabase
 
 final class ProductsWorker {
-    func doSomeWork() {
-   
+    func getProducts(completion: @escaping ([String:Any]) -> ())  {
+        Database.database(url: Constants.REALTIME_URL).reference(withPath: Constants.PRODUCTS).observe(.value, with: { [weak self] snapshot in
+            if let dict = snapshot.value as? [String:Any] {
+                completion(dict)
+            }
+        })
     }
 }

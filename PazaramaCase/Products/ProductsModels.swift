@@ -9,16 +9,28 @@
 import Foundation
 
 enum Products {
-    
-    enum Something {
-        struct Request {
-            
-        }
-        struct Response {
-            
-        }
-        struct ViewModel {
-            
-        }
+    struct Request {
+        
     }
+    struct Response {
+        let products : [String:Any]
+    }
+    struct ViewModel {
+        let products : [Product]
+    }
+}
+
+// MARK: - Product
+struct Product: Codable {
+    let brand: String?
+    let images: Images?
+    let itemColor, itemDescription, longDescription, pattern: String?
+    let price: Double?
+    let itemType: String?
+    let productID: Int?
+}
+
+// MARK: - Images
+struct Images: Codable {
+    let imageFirst, imageSecond: String?
 }
