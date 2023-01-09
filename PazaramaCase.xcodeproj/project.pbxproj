@@ -10,6 +10,12 @@
 		2287D6829F9B5F0E1B877319 /* Pods_PazaramaCase_PazaramaCaseUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42D458025CC97D4EF74BC32E /* Pods_PazaramaCase_PazaramaCaseUITests.framework */; };
 		A09C76C740D29624CB527463 /* Pods_PazaramaCaseTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BCE29DD55B449B9FC35D813 /* Pods_PazaramaCaseTests.framework */; };
 		A900473B296C2FB3005786E1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A900473A296C2FB3005786E1 /* GoogleService-Info.plist */; };
+		A9004743296C327B005786E1 /* ProductsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A900473D296C327B005786E1 /* ProductsPresenter.swift */; };
+		A9004744296C327B005786E1 /* ProductsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A900473E296C327B005786E1 /* ProductsWorker.swift */; };
+		A9004745296C327B005786E1 /* ProductsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A900473F296C327B005786E1 /* ProductsRouter.swift */; };
+		A9004746296C327B005786E1 /* ProductsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9004740296C327B005786E1 /* ProductsModels.swift */; };
+		A9004747296C327B005786E1 /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9004741296C327B005786E1 /* ProductsViewController.swift */; };
+		A9004748296C327B005786E1 /* ProductsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9004742296C327B005786E1 /* ProductsInteractor.swift */; };
 		A95676CA296C28930079B2DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95676C9296C28930079B2DE /* AppDelegate.swift */; };
 		A95676CC296C28930079B2DE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95676CB296C28930079B2DE /* SceneDelegate.swift */; };
 		A95676CE296C28930079B2DE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95676CD296C28930079B2DE /* ViewController.swift */; };
@@ -46,6 +52,12 @@
 		6743FFED10163FA8033CA522 /* Pods-PazaramaCase.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PazaramaCase.release.xcconfig"; path = "Target Support Files/Pods-PazaramaCase/Pods-PazaramaCase.release.xcconfig"; sourceTree = "<group>"; };
 		7BCE29DD55B449B9FC35D813 /* Pods_PazaramaCaseTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PazaramaCaseTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A900473A296C2FB3005786E1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A900473D296C327B005786E1 /* ProductsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsPresenter.swift; sourceTree = "<group>"; };
+		A900473E296C327B005786E1 /* ProductsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsWorker.swift; sourceTree = "<group>"; };
+		A900473F296C327B005786E1 /* ProductsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsRouter.swift; sourceTree = "<group>"; };
+		A9004740296C327B005786E1 /* ProductsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsModels.swift; sourceTree = "<group>"; };
+		A9004741296C327B005786E1 /* ProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
+		A9004742296C327B005786E1 /* ProductsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsInteractor.swift; sourceTree = "<group>"; };
 		A9446F8F57E9655682CA21CF /* Pods-PazaramaCase.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PazaramaCase.debug.xcconfig"; path = "Target Support Files/Pods-PazaramaCase/Pods-PazaramaCase.debug.xcconfig"; sourceTree = "<group>"; };
 		A95676C6296C28930079B2DE /* PazaramaCase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PazaramaCase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A95676C9296C28930079B2DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -114,6 +126,19 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		A900473C296C3262005786E1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A900473D296C327B005786E1 /* ProductsPresenter.swift */,
+				A900473E296C327B005786E1 /* ProductsWorker.swift */,
+				A900473F296C327B005786E1 /* ProductsRouter.swift */,
+				A9004740296C327B005786E1 /* ProductsModels.swift */,
+				A9004741296C327B005786E1 /* ProductsViewController.swift */,
+				A9004742296C327B005786E1 /* ProductsInteractor.swift */,
+			);
+			path = Products;
+			sourceTree = "<group>";
+		};
 		A95676BD296C28930079B2DE = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +164,7 @@
 		A95676C8296C28930079B2DE /* PazaramaCase */ = {
 			isa = PBXGroup;
 			children = (
+				A900473C296C3262005786E1 /* Products */,
 				A95676C9296C28930079B2DE /* AppDelegate.swift */,
 				A95676CB296C28930079B2DE /* SceneDelegate.swift */,
 				A95676CD296C28930079B2DE /* ViewController.swift */,
@@ -408,6 +434,12 @@
 			files = (
 				A95676CE296C28930079B2DE /* ViewController.swift in Sources */,
 				A95676CA296C28930079B2DE /* AppDelegate.swift in Sources */,
+				A9004747296C327B005786E1 /* ProductsViewController.swift in Sources */,
+				A9004748296C327B005786E1 /* ProductsInteractor.swift in Sources */,
+				A9004746296C327B005786E1 /* ProductsModels.swift in Sources */,
+				A9004745296C327B005786E1 /* ProductsRouter.swift in Sources */,
+				A9004743296C327B005786E1 /* ProductsPresenter.swift in Sources */,
+				A9004744296C327B005786E1 /* ProductsWorker.swift in Sources */,
 				A95676CC296C28930079B2DE /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
