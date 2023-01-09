@@ -8,8 +8,8 @@
 
 import Foundation
 
-protocol ProductsBusinessLogic {
-    func doSomething(request: Products.Something.Request)
+protocol ProductsBusinessLogic : AnyObject {
+    func getProducts(_ request: Products.Request)
 }
 
 protocol ProductsDataStore {
@@ -19,15 +19,15 @@ protocol ProductsDataStore {
 final class ProductsInteractor: ProductsBusinessLogic, ProductsDataStore {
     var presenter: ProductsPresentationLogic?
     var worker: ProductsWorker?
-    //var name: String = ""
     
-    // MARK: Do something
-    
-    func doSomething(request: Products.Something.Request) {
+    func getProducts(_ request: Products.Request) {
         worker = ProductsWorker()
-        worker?.doSomeWork()
-        
-        let response = Products.Something.Response()
-        presenter?.presentSomething(response: response)
+        worker?.getProducts(completion: { dictionary in
+            if !dictionary.isEmpty {
+                self.presenter?.presentSomething(response: Products.Response(products: dictionary))
+            } else {
+                self.presenter?.presentError(message: "Firebaseten verileri çekerken bi hata meydana geldi")
+            }
+        })
     }
 }

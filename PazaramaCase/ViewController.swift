@@ -9,12 +9,18 @@ import UIKit
 import FirebaseDatabase
 
 class ViewController: UIViewController {
-
+    
+    var products : [Product] = []
     override func viewDidLoad() {
         super.viewDidLoad()
-        let rootRef = Database.database(url: "https://pazaramacasestudy-25225-default-rtdb.europe-west1.firebasedatabase.app/").reference()
-        rootRef.observe(.value, with: { snapshot in
-          print(snapshot.value)
+        let ref = Database.database(url: Constants.REALTIME_URL).reference(withPath: Constants.PRODUCTS)
+        ref.observe(.value, with: { snapshot in
+            let dict = snapshot.value as! [String:Any]
+//            for (key, value) in dict.first!.enumerated() {
+//                if let product = value.key as? Product {
+//                    self?.products.append(product)
+//                }
+//            }
         })
     }
 
