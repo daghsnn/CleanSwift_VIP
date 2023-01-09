@@ -16,6 +16,15 @@
 		A9004746296C327B005786E1 /* ProductsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9004740296C327B005786E1 /* ProductsModels.swift */; };
 		A9004747296C327B005786E1 /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9004741296C327B005786E1 /* ProductsViewController.swift */; };
 		A9004748296C327B005786E1 /* ProductsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9004742296C327B005786E1 /* ProductsInteractor.swift */; };
+		A9004750296C334D005786E1 /* ProductDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A900474A296C334D005786E1 /* ProductDetailPresenter.swift */; };
+		A9004751296C334D005786E1 /* ProductDetailWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A900474B296C334D005786E1 /* ProductDetailWorker.swift */; };
+		A9004752296C334D005786E1 /* ProductDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A900474C296C334D005786E1 /* ProductDetailRouter.swift */; };
+		A9004753296C334D005786E1 /* ProductDetailModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A900474D296C334D005786E1 /* ProductDetailModels.swift */; };
+		A9004754296C334D005786E1 /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A900474E296C334D005786E1 /* ProductDetailViewController.swift */; };
+		A9004755296C334D005786E1 /* ProductDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A900474F296C334D005786E1 /* ProductDetailInteractor.swift */; };
+		A9004758296C33A9005786E1 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9004757296C33A8005786E1 /* UIView+Extension.swift */; };
+		A900475A296C33D8005786E1 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9004759296C33D8005786E1 /* UIViewController+Extensions.swift */; };
+		A900475C296C349A005786E1 /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A900475B296C349A005786E1 /* ColorManager.swift */; };
 		A95676CA296C28930079B2DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95676C9296C28930079B2DE /* AppDelegate.swift */; };
 		A95676CC296C28930079B2DE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95676CB296C28930079B2DE /* SceneDelegate.swift */; };
 		A95676CE296C28930079B2DE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95676CD296C28930079B2DE /* ViewController.swift */; };
@@ -58,6 +67,15 @@
 		A9004740296C327B005786E1 /* ProductsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsModels.swift; sourceTree = "<group>"; };
 		A9004741296C327B005786E1 /* ProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
 		A9004742296C327B005786E1 /* ProductsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsInteractor.swift; sourceTree = "<group>"; };
+		A900474A296C334D005786E1 /* ProductDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailPresenter.swift; sourceTree = "<group>"; };
+		A900474B296C334D005786E1 /* ProductDetailWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailWorker.swift; sourceTree = "<group>"; };
+		A900474C296C334D005786E1 /* ProductDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailRouter.swift; sourceTree = "<group>"; };
+		A900474D296C334D005786E1 /* ProductDetailModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailModels.swift; sourceTree = "<group>"; };
+		A900474E296C334D005786E1 /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
+		A900474F296C334D005786E1 /* ProductDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailInteractor.swift; sourceTree = "<group>"; };
+		A9004757296C33A8005786E1 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		A9004759296C33D8005786E1 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		A900475B296C349A005786E1 /* ColorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorManager.swift; sourceTree = "<group>"; };
 		A9446F8F57E9655682CA21CF /* Pods-PazaramaCase.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PazaramaCase.debug.xcconfig"; path = "Target Support Files/Pods-PazaramaCase/Pods-PazaramaCase.debug.xcconfig"; sourceTree = "<group>"; };
 		A95676C6296C28930079B2DE /* PazaramaCase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PazaramaCase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A95676C9296C28930079B2DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -139,6 +157,29 @@
 			path = Products;
 			sourceTree = "<group>";
 		};
+		A9004749296C3336005786E1 /* ProductDetail */ = {
+			isa = PBXGroup;
+			children = (
+				A900474A296C334D005786E1 /* ProductDetailPresenter.swift */,
+				A900474B296C334D005786E1 /* ProductDetailWorker.swift */,
+				A900474C296C334D005786E1 /* ProductDetailRouter.swift */,
+				A900474D296C334D005786E1 /* ProductDetailModels.swift */,
+				A900474E296C334D005786E1 /* ProductDetailViewController.swift */,
+				A900474F296C334D005786E1 /* ProductDetailInteractor.swift */,
+			);
+			path = ProductDetail;
+			sourceTree = "<group>";
+		};
+		A9004756296C3352005786E1 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				A9004757296C33A8005786E1 /* UIView+Extension.swift */,
+				A9004759296C33D8005786E1 /* UIViewController+Extensions.swift */,
+				A900475B296C349A005786E1 /* ColorManager.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		A95676BD296C28930079B2DE = {
 			isa = PBXGroup;
 			children = (
@@ -164,6 +205,8 @@
 		A95676C8296C28930079B2DE /* PazaramaCase */ = {
 			isa = PBXGroup;
 			children = (
+				A9004756296C3352005786E1 /* Helpers */,
+				A9004749296C3336005786E1 /* ProductDetail */,
 				A900473C296C3262005786E1 /* Products */,
 				A95676C9296C28930079B2DE /* AppDelegate.swift */,
 				A95676CB296C28930079B2DE /* SceneDelegate.swift */,
@@ -433,12 +476,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				A95676CE296C28930079B2DE /* ViewController.swift in Sources */,
+				A9004753296C334D005786E1 /* ProductDetailModels.swift in Sources */,
+				A9004758296C33A9005786E1 /* UIView+Extension.swift in Sources */,
 				A95676CA296C28930079B2DE /* AppDelegate.swift in Sources */,
 				A9004747296C327B005786E1 /* ProductsViewController.swift in Sources */,
+				A900475A296C33D8005786E1 /* UIViewController+Extensions.swift in Sources */,
 				A9004748296C327B005786E1 /* ProductsInteractor.swift in Sources */,
 				A9004746296C327B005786E1 /* ProductsModels.swift in Sources */,
+				A9004752296C334D005786E1 /* ProductDetailRouter.swift in Sources */,
+				A9004750296C334D005786E1 /* ProductDetailPresenter.swift in Sources */,
 				A9004745296C327B005786E1 /* ProductsRouter.swift in Sources */,
+				A9004755296C334D005786E1 /* ProductDetailInteractor.swift in Sources */,
+				A9004754296C334D005786E1 /* ProductDetailViewController.swift in Sources */,
+				A9004751296C334D005786E1 /* ProductDetailWorker.swift in Sources */,
 				A9004743296C327B005786E1 /* ProductsPresenter.swift in Sources */,
+				A900475C296C349A005786E1 /* ColorManager.swift in Sources */,
 				A9004744296C327B005786E1 /* ProductsWorker.swift in Sources */,
 				A95676CC296C28930079B2DE /* SceneDelegate.swift in Sources */,
 			);
