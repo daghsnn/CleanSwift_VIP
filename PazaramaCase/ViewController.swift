@@ -12,7 +12,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let rootRef = Database.database().reference()
+        let rootRef = Database.database(url: "https://pazaramacasestudy-25225-default-rtdb.europe-west1.firebasedatabase.app/").reference()
         rootRef.observe(.value, with: { snapshot in
           print(snapshot.value)
         })
