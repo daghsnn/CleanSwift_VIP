@@ -10,7 +10,7 @@
 import UIKit
 
 protocol ProductsDisplayLogic: AnyObject {
-    func displaySomething(viewModel: Products.ViewModel)
+    func displayProducts(viewModel: Products.ViewModel)
     func presentError(message: String)
 
 }
@@ -63,7 +63,7 @@ extension ProductsViewController : ProductsDisplayLogic {
         }
     }
     
-    func displaySomething(viewModel: Products.ViewModel) {
+    func displayProducts(viewModel: Products.ViewModel) {
         // TODO: buraya kadar tamamdır
         print(viewModel.products.first?.itemColor)
     }

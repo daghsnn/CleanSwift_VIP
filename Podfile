@@ -9,6 +9,7 @@ target 'PazaramaCase' do
 	pod 'IQKeyboardManagerSwift'
 	pod 'SnapKit'
 	pod 'FirebaseDatabase'	
+	pod 'SDWebImage'
   target 'PazaramaCaseTests' do
     inherit! :search_paths
     # Pods for testing

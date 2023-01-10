@@ -22,12 +22,12 @@ final class ProductsInteractor: ProductsBusinessLogic, ProductsDataStore {
     
     func getProducts(_ request: Products.Request) {
         worker = ProductsWorker()
-        worker?.getProducts(completion: { dictionary in
+        worker?.getProducts { dictionary in
             if !dictionary.isEmpty {
-                self.presenter?.presentSomething(response: Products.Response(products: dictionary))
+                self.presenter?.presentProducts(response: Products.Response(products: dictionary))
             } else {
                 self.presenter?.presentError(message: "Firebaseten verileri çekerken bi hata meydana geldi")
             }
-        })
+        }
     }
 }

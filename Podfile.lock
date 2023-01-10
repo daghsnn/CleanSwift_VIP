@@ -16,11 +16,15 @@ PODS:
   - IQKeyboardManagerSwift (6.5.10)
   - leveldb-library (1.22.1)
   - PromisesObjC (2.1.1)
+  - SDWebImage (5.14.3):
+    - SDWebImage/Core (= 5.14.3)
+  - SDWebImage/Core (5.14.3)
   - SnapKit (5.6.0)
 
 DEPENDENCIES:
   - FirebaseDatabase
   - IQKeyboardManagerSwift
+  - SDWebImage
   - SnapKit
 
 SPEC REPOS:
@@ -32,6 +36,7 @@ SPEC REPOS:
     - IQKeyboardManagerSwift
     - leveldb-library
     - PromisesObjC
+    - SDWebImage
     - SnapKit
 
 SPEC CHECKSUMS:
@@ -42,8 +47,9 @@ SPEC CHECKSUMS:
   IQKeyboardManagerSwift: 52962c76ab33532f15ad9f3ff4e5715eda5335bb
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
   PromisesObjC: ab77feca74fa2823e7af4249b8326368e61014cb
+  SDWebImage: 9c36e66c8ce4620b41a7407698dda44211a96764
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
 
-PODFILE CHECKSUM: dbbf543fe7d28f57c74895db25743ab4384e9c08
+PODFILE CHECKSUM: 0aedad98c0675ccee635e29a5a620c58ef97ca8e
 
 COCOAPODS: 1.11.3

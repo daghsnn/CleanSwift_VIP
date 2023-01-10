@@ -9,7 +9,7 @@
 import Foundation
 
 protocol ProductsPresentationLogic : AnyObject {
-    func presentSomething(response: Products.Response)
+    func presentProducts(response: Products.Response)
     func presentError(message: String)
 }
 
@@ -36,8 +36,8 @@ final class ProductsPresenter: ProductsPresentationLogic {
         return products
     }
     
-    func presentSomething(response: Products.Response) {
-        viewController?.displaySomething(viewModel: Products.ViewModel(products: generateViewModel(response.products)))
+    func presentProducts(response: Products.Response) {
+        viewController?.displayProducts(viewModel: Products.ViewModel(products: generateViewModel(response.products)))
     }
     
     func presentError(message: String) {
