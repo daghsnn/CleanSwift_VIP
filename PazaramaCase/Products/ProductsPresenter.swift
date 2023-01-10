@@ -17,27 +17,32 @@ final class ProductsPresenter: ProductsPresentationLogic {
 
     weak var viewController: ProductsDisplayLogic?
     
-    private func generateViewModel(_ dict : [String:Any]) -> [Product] {
+    private func generateViewModel(_ dict : [String:Any]) -> (product:[Product], error:String?) {
         var products : [Product] = []
         for key in dict.keys {
             if let element = dict[key] {
                 guard let data = try? JSONSerialization.data(withJSONObject: element, options: [.prettyPrinted]) else {
-                    return products
+                    return (products, "Hata meydana geldi")
                 }
                 do {
                     products.append(try JSONDecoder().decode(Product.self, from: data))
                 } catch let error {
-                    
+                    return (products, error.localizedDescription)
                 }
 
             }
         }
-   
-        return products
+        
+        return (products.sorted { $0.productID! < $1.productID! }, nil)
     }
     
     func presentProducts(response: Products.Response) {
-        viewController?.displayProducts(viewModel: Products.ViewModel(products: generateViewModel(response.products)))
+        let models = generateViewModel(response.products)
+        if models.error != nil {
+            self.presentError(message: models.error!)
+        } else {
+            self.viewController?.displayProducts(viewModel: Products.ViewModel(products: models.product))
+        }
     }
     
     func presentError(message: String) {
