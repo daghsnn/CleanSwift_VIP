@@ -10,6 +10,7 @@ extension ColorsManager {
     
     enum ColorName: String {
         case cellBordorColor
+        case lineColor
     }
     
     static func findColor(name: ColorName) -> UIColor {
@@ -22,4 +23,5 @@ extension ColorsManager {
 
 enum ColorsManager {
     static let cellBordorColor = findColor(name: ColorName.cellBordorColor)
+    static let lineColor = findColor(name: ColorName.lineColor)
 }

@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ProductsRoutingLogic {
-    //func routeToSomewhere()
+    func routeToDetails(product:Product)
 }
 
 protocol ProductsDataPassing {
@@ -20,16 +20,10 @@ final class ProductsRouter: NSObject, ProductsRoutingLogic, ProductsDataPassing 
     weak var viewController: ProductsViewController?
     var dataStore: ProductsDataStore?
     
-    
-    // MARK: Navigation
-    
-    //func routeToSomewhere() {
-
-    //}
-    
-    // MARK: Passing data
-    
-    //func passDataToSomewhere(source: ProductsDataStore, destination: inout SomewhereDataStore) {
-    //  destination.name = source.name
-    //}
+    func routeToDetails(product: Product) {
+        let vc = ProductDetailViewController()
+        vc.delegate = viewController
+        vc.product = product
+        viewController?.navigationController?.pushViewController(vc, animated: true)
+    }
 }

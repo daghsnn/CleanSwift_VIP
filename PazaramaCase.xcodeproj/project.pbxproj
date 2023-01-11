@@ -33,6 +33,7 @@
 		A95676E1296C28950079B2DE /* PazaramaCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95676E0296C28950079B2DE /* PazaramaCaseTests.swift */; };
 		A95676EB296C28950079B2DE /* PazaramaCaseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95676EA296C28950079B2DE /* PazaramaCaseUITests.swift */; };
 		A95676ED296C28950079B2DE /* PazaramaCaseUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95676EC296C28950079B2DE /* PazaramaCaseUITestsLaunchTests.swift */; };
+		A96F3CB1296F16BA0001CCC6 /* ProductDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96F3CB0296F16BA0001CCC6 /* ProductDetailCell.swift */; };
 		A9FDD3B2296DA25700D1E8CF /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FDD3B1296DA25700D1E8CF /* ProductCell.swift */; };
 		A9FDD3B4296DA27600D1E8CF /* Optional+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FDD3B3296DA27600D1E8CF /* Optional+Extension.swift */; };
 		D4E052928AD8E66BD0CC8AFB /* Pods_PazaramaCase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51C5438F86BA221FE083CE97 /* Pods_PazaramaCase.framework */; };
@@ -91,6 +92,7 @@
 		A95676E6296C28950079B2DE /* PazaramaCaseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PazaramaCaseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A95676EA296C28950079B2DE /* PazaramaCaseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PazaramaCaseUITests.swift; sourceTree = "<group>"; };
 		A95676EC296C28950079B2DE /* PazaramaCaseUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PazaramaCaseUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		A96F3CB0296F16BA0001CCC6 /* ProductDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailCell.swift; sourceTree = "<group>"; };
 		A9FDD3B1296DA25700D1E8CF /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		A9FDD3B3296DA27600D1E8CF /* Optional+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Extension.swift"; sourceTree = "<group>"; };
 		BCD8D4E288167094B5C5BBB0 /* Pods-PazaramaCase-PazaramaCaseUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PazaramaCase-PazaramaCaseUITests.debug.xcconfig"; path = "Target Support Files/Pods-PazaramaCase-PazaramaCaseUITests/Pods-PazaramaCase-PazaramaCaseUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				A900474D296C334D005786E1 /* ProductDetailModels.swift */,
 				A900474E296C334D005786E1 /* ProductDetailViewController.swift */,
 				A900474F296C334D005786E1 /* ProductDetailInteractor.swift */,
+				A96F3CB0296F16BA0001CCC6 /* ProductDetailCell.swift */,
 			);
 			path = ProductDetail;
 			sourceTree = "<group>";
@@ -494,6 +497,7 @@
 				A9004745296C327B005786E1 /* ProductsRouter.swift in Sources */,
 				A9004755296C334D005786E1 /* ProductDetailInteractor.swift in Sources */,
 				A9004754296C334D005786E1 /* ProductDetailViewController.swift in Sources */,
+				A96F3CB1296F16BA0001CCC6 /* ProductDetailCell.swift in Sources */,
 				A9004751296C334D005786E1 /* ProductDetailWorker.swift in Sources */,
 				A9004743296C327B005786E1 /* ProductsPresenter.swift in Sources */,
 				A900475C296C349A005786E1 /* ColorManager.swift in Sources */,

@@ -125,7 +125,6 @@ final class ProductsViewController: UIViewController {
         view.addSubview(badgeView)
         view.addSubview(searchBar)
         
-        let statusheight = UIApplication.shared.statusBarFrame.size.height
         logoImageView.snp.makeConstraints { make in
             make.leading.equalToSuperview().inset(16)
             make.height.equalTo(UIView.HEIGHT * 0.04)
@@ -134,7 +133,7 @@ final class ProductsViewController: UIViewController {
         }
         
         addBasketButton.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(statusheight + 16)
+            make.top.equalToSuperview().inset(UIView.STATUSHeight + 16)
             make.trailing.equalToSuperview().inset(32)
             make.size.equalTo(22)
         }
@@ -198,6 +197,12 @@ extension ProductsViewController : UICollectionViewDataSource, UICollectionViewD
             cell.configureCell(product)
         }
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let product = viewModel?.products[indexPath.row] {
+            self.router?.routeToDetails(product: product)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

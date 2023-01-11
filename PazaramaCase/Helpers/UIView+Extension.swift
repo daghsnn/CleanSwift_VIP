@@ -7,7 +7,10 @@
 
 import UIKit
 extension UIView {
-    static var BOTTOMSafeArea : CGFloat { UIApplication.shared.windows.first?.safeAreaInsets.bottom ?? 0 }
+    static var STATUSHeight : CGFloat {
+        UIApplication.shared.statusBarFrame.size.height
+    }
+
     static var WIDTH: CGFloat {
         return UIScreen.main.bounds.width
     }
