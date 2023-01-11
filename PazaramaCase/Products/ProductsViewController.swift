@@ -19,6 +19,54 @@ final class ProductsViewController: UIViewController {
     weak var interactor: ProductsBusinessLogic?
     var router: (ProductsRoutingLogic & ProductsDataPassing)?
     var viewModel : Products.ViewModel?
+    var searchBarOldText : String = ""
+    var basketProducts : [Product] = [] {
+        didSet{
+            if basketProducts.count == 0 {
+                badgeView.isHidden = true
+            } else {
+                badgeView.isHidden = false
+            }
+            
+        }
+    }
+    private lazy var logoImageView : UIImageView = {
+        let view = UIImageView(frame: .zero)
+        view.image = UIImage(named: "logo")
+        view.contentMode = .scaleAspectFill
+        view.backgroundColor = .clear
+        return view
+    }()
+    
+    private lazy var addBasketButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setBackgroundImage(UIImage(named: "shopIcon")?.withRenderingMode(.alwaysOriginal), for: .normal)
+        button.backgroundColor = .clear
+        button.addTarget(self, action: #selector(clickedBasked), for: .touchUpInside)
+        return button
+    }()
+    
+    private lazy var badgeView : UIView = {
+        let badgeView = UIView()
+        badgeView.backgroundColor = .red.withAlphaComponent(0.5)
+        badgeView.isHidden = true
+        return badgeView
+    }()
+    
+    private lazy var searchBar : UISearchBar = {
+        let searchBar = UISearchBar()
+        searchBar.searchBarStyle = .prominent
+        searchBar.tintColor = UIColor(red: 0.543, green: 0.543, blue: 0.579, alpha: 1)
+        searchBar.searchTextField.font = .systemFont(ofSize: 12, weight: .regular)
+        searchBar.placeholder = "Marka, ürün ya da hizmet arayın"
+        searchBar.image(for: .search, state: .normal)
+        searchBar.layer.cornerRadius = 6
+        searchBar.layer.borderWidth = 1
+        searchBar.layer.borderColor = UIColor.white.cgColor
+        searchBar.delegate = self
+        return searchBar
+    }()
+    
     
     private lazy var collectionView : UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
@@ -72,10 +120,54 @@ final class ProductsViewController: UIViewController {
     
     private func configureUI(){
         view.addSubview(collectionView)
+        view.addSubview(logoImageView)
+        view.addSubview(addBasketButton)
+        view.addSubview(badgeView)
+        view.addSubview(searchBar)
+        
+        let statusheight = UIApplication.shared.statusBarFrame.size.height
+        logoImageView.snp.makeConstraints { make in
+            make.leading.equalToSuperview().inset(16)
+            make.height.equalTo(UIView.HEIGHT * 0.04)
+            make.width.equalTo(UIView.WIDTH * 0.5)
+            make.centerY.equalTo(addBasketButton.snp.centerY)
+        }
+        
+        addBasketButton.snp.makeConstraints { make in
+            make.top.equalToSuperview().inset(statusheight + 16)
+            make.trailing.equalToSuperview().inset(32)
+            make.size.equalTo(22)
+        }
+        
+        badgeView.snp.makeConstraints { make in
+            make.top.equalTo(addBasketButton.snp.top).offset(-12)
+            make.leading.equalTo(addBasketButton.snp.trailing)
+            make.size.equalTo(16)
+        }
+        
+        searchBar.snp.makeConstraints { make in
+            make.top.equalTo(logoImageView.snp.bottom).offset(32)
+            make.leading.trailing.equalToSuperview().inset(8)
+            make.height.equalTo(UIView.HEIGHT * 0.05)
+        }
+        
         collectionView.snp.makeConstraints { make in
-            make.top.bottom.equalToSuperview()
+            make.top.equalTo(searchBar.snp.bottom).offset(16)
+            make.bottom.equalToSuperview()
             make.leading.trailing.equalToSuperview().inset(16)
         }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        searchBar.layer.cornerRadius = 6
+        searchBar.layer.borderWidth = 1
+        searchBar.layer.borderColor = UIColor.white.cgColor
+        badgeView.layer.cornerRadius = badgeView.frame.height / 2
+    }
+    
+    @objc private func clickedBasked(){
+        
     }
 }
 
@@ -123,8 +215,74 @@ extension ProductsViewController : UICollectionViewDataSource, UICollectionViewD
 
 extension ProductsViewController : ProductBasketDelegate {
     func addToBasket(product: Product) {
-        // TODO: Basket Items
+        if basketProducts.count == 0 {
+            self.basketProducts.append(product)
+        } else {
+            if !basketProducts.contains(where: { $0.productID == product.productID}){
+                self.basketProducts.append(product)
+            } else {
+                DispatchQueue.main.async {
+                    self.showToast(message: "Ürün zaten ekli", duration: 1)
+                }
+            }
+        }
+        
+    }
+}
+
+extension ProductsViewController : UISearchBarDelegate {
+    
+    fileprivate func configureCancelSearch(isEditing:Bool=false) {
+        if let products = viewModel?.searchingModels {
+            self.viewModel?.products = products
+            if !isEditing {
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
+            }
+        }
     }
     
+    fileprivate func configureSearching(_ searchText: String, isPressBackSpace:Bool = false) {
+        if isPressBackSpace {
+            self.configureCancelSearch(isEditing: true)
+        }
+        guard let product = viewModel?.products else {return}
+        let requestWorkItem = DispatchWorkItem {
+            self.viewModel?.products = product.filter{$0.brand!.lowercased().contains(searchText)}
+            self.collectionView.reloadData()
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(250), execute: requestWorkItem)
+    }
     
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.count > 0 {
+            if searchBarOldText.count > searchText.count {
+                self.configureSearching(searchText.lowercased(), isPressBackSpace: true)
+            } else {
+                searchBarOldText = searchText
+                self.configureSearching(searchText.lowercased())
+            }
+        } else if searchText.count == 0 {
+            searchBar.showsCancelButton = false
+            configureCancelSearch()
+        }
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        self.searchBarOldText = searchBar.text ?? ""
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+        searchBar.showsCancelButton = false
+        configureCancelSearch()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = true
+        if searchBar.text?.count ?? 1 > 0 {
+            self.configureSearching((searchBar.text?.lowercased())!)
+        }
+    }
 }

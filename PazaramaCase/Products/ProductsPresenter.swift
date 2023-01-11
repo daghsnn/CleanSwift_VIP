@@ -41,7 +41,7 @@ final class ProductsPresenter: ProductsPresentationLogic {
         if models.error != nil {
             self.presentError(message: models.error!)
         } else {
-            self.viewController?.displayProducts(viewModel: Products.ViewModel(products: models.product))
+            self.viewController?.displayProducts(viewModel: Products.ViewModel(products: models.product, searchingModels: models.product))
         }
     }
     

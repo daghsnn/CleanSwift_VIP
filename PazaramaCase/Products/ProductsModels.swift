@@ -16,7 +16,8 @@ enum Products {
         let products : [String:Any]
     }
     struct ViewModel {
-        let products : [Product]
+        var products : [Product]
+        var searchingModels : [Product]
     }
 }
 
