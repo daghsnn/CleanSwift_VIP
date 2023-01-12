@@ -9,14 +9,10 @@
 
 import UIKit
 
-protocol ProductDetailDisplayLogic: AnyObject {
-    func displaySomething(viewModel: ProductDetail.Something.ViewModel)
-}
-
 final class ProductDetailViewController: UIViewController {
-    var interactor: ProductDetailBusinessLogic?
-    var router: (ProductDetailRoutingLogic & ProductDetailDataPassing)?
+    var router: ProductDetailRoutingLogic?
     var product : Product?
+    var basketProducts: [Product]?
     weak var delegate : ProductBasketDelegate?
 
     private lazy var collectionView : UICollectionView = {
@@ -42,7 +38,7 @@ final class ProductDetailViewController: UIViewController {
         let button = UIButton(type: .system)
         button.setBackgroundImage(UIImage(named: "shopIcon")?.withRenderingMode(.alwaysOriginal), for: .normal)
         button.backgroundColor = .clear
-        button.addTarget(self, action: #selector(clickedBasked), for: .touchUpInside)
+        button.addTarget(self, action: #selector(gotoBasket), for: .touchUpInside)
         return button
     }()
     
@@ -224,15 +220,9 @@ final class ProductDetailViewController: UIViewController {
     
     private func setup() {
         let viewController = self
-        let interactor = ProductDetailInteractor()
-        let presenter = ProductDetailPresenter()
         let router = ProductDetailRouter()
-        viewController.interactor = interactor
         viewController.router = router
-        interactor.presenter = presenter
-        presenter.viewController = viewController
         router.viewController = viewController
-        router.dataStore = interactor
     }
     
     // MARK: View lifecycle
@@ -245,6 +235,7 @@ final class ProductDetailViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = true
         configureDisplay()
     }
     
@@ -373,9 +364,16 @@ final class ProductDetailViewController: UIViewController {
     
     @objc private func clickedBasked(){
         if let product {
+            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(500)){
+                self.showToast(message: "Sepekete Eklendi", duration: 0.5)
+            }
             self.delegate?.addToBasket(product: product)
             navigationController?.popViewController(animated: true)
         }
+    }
+    
+    @objc private func gotoBasket() {
+        router?.routeToBasket()
     }
 }
 
@@ -405,8 +403,4 @@ extension ProductDetailViewController : UICollectionViewDataSource, UICollection
 
     
 }
-extension ProductDetailViewController : ProductDetailDisplayLogic {
-    func displaySomething(viewModel: ProductDetail.Something.ViewModel) {
-        
-    }
-}
+

@@ -9,27 +9,16 @@
 import UIKit
 
 protocol ProductDetailRoutingLogic {
-    //func routeToSomewhere()
+    func routeToBasket()
 }
 
-protocol ProductDetailDataPassing {
-    var dataStore: ProductDetailDataStore? { get }
-}
 
-final class ProductDetailRouter: NSObject, ProductDetailRoutingLogic, ProductDetailDataPassing {
+final class ProductDetailRouter: NSObject, ProductDetailRoutingLogic {
     weak var viewController: ProductDetailViewController?
-    var dataStore: ProductDetailDataStore?
     
-    
-    // MARK: Navigation
-    
-    //func routeToSomewhere() {
-
-    //}
-    
-    // MARK: Passing data
-    
-    //func passDataToSomewhere(source: ProductDetailDataStore, destination: inout SomewhereDataStore) {
-    //  destination.name = source.name
-    //}
+    func routeToBasket(){
+        let destination = BasketViewController()
+        destination.products = viewController?.basketProducts
+        viewController?.navigationController?.pushViewController(destination, animated: true)
+    }
 }

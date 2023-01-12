@@ -166,7 +166,7 @@ final class ProductsViewController: UIViewController {
     }
     
     @objc private func clickedBasked(){
-        
+        router?.routeToBasket()
     }
 }
 
@@ -201,7 +201,7 @@ extension ProductsViewController : UICollectionViewDataSource, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let product = viewModel?.products[indexPath.row] {
-            self.router?.routeToDetails(product: product)
+            self.router?.routeToDetails(product: product, basketProducts: basketProducts)
         }
     }
     

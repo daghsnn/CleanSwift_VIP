@@ -13,10 +13,12 @@ protocol ProductsBusinessLogic : AnyObject {
 }
 
 protocol ProductsDataStore {
-    //var name: String { get set }
+// DataStore kullanılarak diğer modüllerle basket gibi ürünler paslanabilir fakat şuanki case de pek gerekli görmedim.
+    
 }
 
 final class ProductsInteractor: ProductsBusinessLogic, ProductsDataStore {
+    var basketProducts: [Products]?
     var presenter: ProductsPresentationLogic?
     var worker: ProductsWorker?
     

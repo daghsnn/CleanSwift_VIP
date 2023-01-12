@@ -9,7 +9,8 @@
 import UIKit
 
 protocol ProductsRoutingLogic {
-    func routeToDetails(product:Product)
+    func routeToDetails(product:Product, basketProducts: [Product])
+    func routeToBasket()
 }
 
 protocol ProductsDataPassing {
@@ -20,10 +21,17 @@ final class ProductsRouter: NSObject, ProductsRoutingLogic, ProductsDataPassing 
     weak var viewController: ProductsViewController?
     var dataStore: ProductsDataStore?
     
-    func routeToDetails(product: Product) {
+    func routeToDetails(product:Product, basketProducts: [Product]) {
         let vc = ProductDetailViewController()
         vc.delegate = viewController
         vc.product = product
+        vc.basketProducts = basketProducts
         viewController?.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func routeToBasket() {
+        let destination = BasketViewController()
+        destination.products = viewController?.basketProducts
+        viewController?.navigationController?.pushViewController(destination, animated: true)
     }
 }

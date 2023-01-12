@@ -11,6 +11,8 @@ extension ColorsManager {
     enum ColorName: String {
         case cellBordorColor
         case lineColor
+        case cvBorderColor
+        case lineShadow
     }
     
     static func findColor(name: ColorName) -> UIColor {
@@ -24,4 +26,6 @@ extension ColorsManager {
 enum ColorsManager {
     static let cellBordorColor = findColor(name: ColorName.cellBordorColor)
     static let lineColor = findColor(name: ColorName.lineColor)
+    static let cvBorderColor = findColor(name: ColorName.cvBorderColor)
+    static let lineShadow = findColor(name: ColorName.lineShadow)
 }
