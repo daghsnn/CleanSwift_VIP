@@ -21,7 +21,6 @@
 		A9004758296C33A9005786E1 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9004757296C33A8005786E1 /* UIView+Extension.swift */; };
 		A900475A296C33D8005786E1 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9004759296C33D8005786E1 /* UIViewController+Extensions.swift */; };
 		A900475C296C349A005786E1 /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A900475B296C349A005786E1 /* ColorManager.swift */; };
-		A900475E296C6CC3005786E1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A900475D296C6CC3005786E1 /* Constants.swift */; };
 		A95676CA296C28930079B2DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95676C9296C28930079B2DE /* AppDelegate.swift */; };
 		A95676CC296C28930079B2DE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95676CB296C28930079B2DE /* SceneDelegate.swift */; };
 		A95676D3296C28940079B2DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A95676D2296C28940079B2DE /* Assets.xcassets */; };
@@ -73,7 +72,6 @@
 		A9004757296C33A8005786E1 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		A9004759296C33D8005786E1 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		A900475B296C349A005786E1 /* ColorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorManager.swift; sourceTree = "<group>"; };
-		A900475D296C6CC3005786E1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A9446F8F57E9655682CA21CF /* Pods-PazaramaCase.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PazaramaCase.debug.xcconfig"; path = "Target Support Files/Pods-PazaramaCase/Pods-PazaramaCase.debug.xcconfig"; sourceTree = "<group>"; };
 		A95676C6296C28930079B2DE /* PazaramaCase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PazaramaCase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A95676C9296C28930079B2DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -176,7 +174,6 @@
 				A9004757296C33A8005786E1 /* UIView+Extension.swift */,
 				A9004759296C33D8005786E1 /* UIViewController+Extensions.swift */,
 				A900475B296C349A005786E1 /* ColorManager.swift */,
-				A900475D296C6CC3005786E1 /* Constants.swift */,
 				A9FDD3B3296DA27600D1E8CF /* Optional+Extension.swift */,
 			);
 			path = Helpers;
@@ -488,7 +485,6 @@
 			files = (
 				A96F3CB4296F608A0001CCC6 /* BasketViewController.swift in Sources */,
 				A96F3CB6296F6E430001CCC6 /* BasketCell.swift in Sources */,
-				A900475E296C6CC3005786E1 /* Constants.swift in Sources */,
 				A9004758296C33A9005786E1 /* UIView+Extension.swift in Sources */,
 				A95676CA296C28930079B2DE /* AppDelegate.swift in Sources */,
 				A9004747296C327B005786E1 /* ProductsViewController.swift in Sources */,

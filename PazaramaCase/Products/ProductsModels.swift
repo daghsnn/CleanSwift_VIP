@@ -35,3 +35,8 @@ struct Product: Codable {
 struct Images: Codable {
     let imageFirst, imageSecond: String?
 }
+
+struct Constants {
+    static var REALTIME_URL = "https://pazaramacasestudy-25225-default-rtdb.europe-west1.firebasedatabase.app/"
+    static var PRODUCTS = "Products"
+}
